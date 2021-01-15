@@ -32,17 +32,17 @@ public class LoginController {
         
         
             Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Don Harry\\Documents\\NetBeansProjects\\E-CatIn\\E-CatIn\\DB\\dbnya.db");    
+            connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Don Harry\\Documents\\NetBeansProjects\\Mie Anto\\DB\\dbnya.db");    
             statement = connection.createStatement();
             String sql;
             
-            sql = "SELECT * FROM admin where username" + "='" + username + "'and password = '" +password+"'";
+            sql = "SELECT * FROM masteradmin where username" + "='" + username + "'and password = '" +password+"'";
             resultSet = statement.executeQuery(sql);
             if(resultSet.next()){
                 App.setRoot("halamanawaladmin");
             }        
             else{
-                sql = "SELECT * FROM mahasiswa where nama" + "='" + username + "'and password = '" +password+"'";
+                sql = "SELECT * FROM pegawai where username" + "='" + username + "'and password = '" +password+"'";
                 ResultSet resultSet1 = statement.executeQuery(sql);
                 if(resultSet1.next()){
                      App.setRoot("startstudent");
@@ -50,7 +50,7 @@ public class LoginController {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Info");
                     alert.setHeaderText(null);
-                    alert.setContentText("Data Anda Belum Tersimpan");
+                    alert.setContentText("Data Anda Belum Tersimpan!");
                     alert.show();
                 }
             }    

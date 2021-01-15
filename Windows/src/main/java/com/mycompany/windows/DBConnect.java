@@ -12,7 +12,7 @@ public class DBConnect {
     public DBConnect(){
         try{
             Class.forName("org.sqlite.JDBC");
-            this.conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Don Harry\\Documents\\NetBeansProjects\\E-CatIn\\E-CatIn\\DB\\dbnya.db");
+            this.conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Don Harry\\Documents\\NetBeansProjects\\Mie Anto\\DB");
         }catch(ClassNotFoundException | SQLException e){
             System.err.println(e.getClass().getName() + ": "+e.getMessage());
             System.exit(0);
